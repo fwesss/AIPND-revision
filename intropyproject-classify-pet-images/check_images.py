@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Main entry point for program
+"""
 # */AIPND-revision/intropyproject-classify-pet-images/check_images.py
 #
 # TODO 0: Add your information below for Programmer & Date Created.
@@ -27,7 +29,7 @@
 ##
 
 # Imports python modules
-from time import time, sleep
+from time import time
 
 # Imports print functions that check the lab
 from print_functions_for_lab_checks import *
@@ -43,9 +45,10 @@ from print_results import print_results
 
 # Main program function defined below
 def main():
+    """Entry into check_images
+    """
     # TODO 0: Measures total program runtime by collecting start time
     start_time = time()
-    sleep(2)
 
     # TODO 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
