@@ -4,7 +4,6 @@
 """
 # */AIPND-revision/intropyproject-classify-pet-images/check_images.py
 #
-# TODO 0: Add your information below for Programmer & Date Created.
 # PROGRAMMER: Westley Feller
 # DATE CREATED: 11/4/18
 # REVISED DATE: 11/4/18
@@ -47,28 +46,14 @@ from print_results import print_results
 def main():
     """Entry into check_images
     """
-    # TODO 0: Measures total program runtime by collecting start time
     start_time = time()
 
-    # TODO 1: Define get_input_args function within the file get_input_args.py
-    # This function retrieves 3 Command Line Arugments from user as input from
-    # the user running the program from a terminal window. This function
-    # returns the collection of these command line arguments from the function
-    # call as the variable in_arg
     in_arg = get_input_args()
 
     # Function that checks command line arguments using in_arg
     check_command_line_arguments(in_arg)
 
-    # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
-    # Once the get_pet_labels function has been defined replace 'None'
-    # in the function call with in_arg.dir  Once you have done the replacements
-    # your function call should look like this:
-    #             get_pet_labels(in_arg.dir)
-    # This function creates the results dictionary that contains the results,
-    # this dictionary is returned from the function call as the variable
-    # results
-    results = get_pet_labels(None)
+    results = get_pet_labels(in_arg.dir)
 
     # Function that checks Pet Images in the results Dictionary using results
     check_creating_pet_image_labels(results)
@@ -123,11 +108,8 @@ def main():
     # and incorrectly classified breeds (if requested)
     print_results(results, results_stats, None, True, True)
 
-    # TODO 0: Measure total program runtime by collecting end time
     end_time = time()
 
-    # TODO 0: Computes overall runtime in seconds & prints it in hh:mm:ss
-    # format
     tot_time = end_time - start_time
     print(
         "\n** Total Elapsed Runtime:",
