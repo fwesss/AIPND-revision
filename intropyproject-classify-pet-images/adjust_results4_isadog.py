@@ -4,7 +4,7 @@
 #
 # PROGRAMMER: Westley Feller
 # DATE CREATED: 11/4/18
-# REVISED DATE: 11/4/18
+# REVISED DATE: 11/5/18
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results
 #          dictionary to indicate whether or not the pet image label is
 #          of-a-dog, and to indicate whether or not the classifier image label
@@ -40,7 +40,8 @@
 #       Notice that this function doesn't return anything because the
 #       results_dic dictionary that is passed into the function is a mutable
 #       data type so no return is needed.
-#
+
+
 def adjust_results4_isadog(results_dic, dogfile):
     """
     Adjusts the results dictionary to determine if classifier correctly
@@ -72,4 +73,26 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    None
+    dognames_dic = dict()
+    with open(dogfile, "r") as f:
+        for line in f.readlines():
+            dog_name = line.rstrip()
+            if dog_name not in dognames_dic:
+                dognames_dic[dog_name] = [1]
+
+            else:
+                print("** Warning: Duplicate dog name exists in directory",
+                      dog_name)
+
+    for key in results_dic:
+        if results_dic[key][0] in dognames_dic:
+            label_is_dog = 1
+        else:
+            label_is_dog = 0
+
+        if results_dic[key][1] in dognames_dic:
+            classifier_is_dog = 1
+        else:
+            classifier_is_dog = 0
+
+        results_dic[key].extend((label_is_dog, classifier_is_dog))
