@@ -46,25 +46,42 @@ def get_pet_labels(image_dir):
     # Replace None with the results_dic dictionary that you created with this
     # function
 
-    filename_list = listdir(image_dir)
-    pet_list = []
+    in_files = listdir(image_dir)
 
-    for file in filename_list:
-        lowered_filename = file.lower()
-        words_in_file = lowered_filename.split("_")
-        pet_name = ""
+    # Processes each of the files to create a dictionary where the key
+    # is the filename and the value is the picture label (below).
 
-        for word in words_in_file:
-            if word.isalpha():
-                pet_name += word + " "
-
-        pet_name = pet_name.strip()
-        pet_list.append(pet_name)
-
+    # Creates empty dictionary for the results (pet labels, etc.)
     results_dic = dict()
 
-    for i in range(len(filename_list)):
-        if filename_list[i] not in results_dic:
-            results_dic[filename_list[i]] = pet_list[i]
+    # Processes through each file in the directory, extracting only the words
+    # of the file that contain the pet image label
+    for idx in range(0, len(in_files), 1):
+
+        # Skips file if starts with . (like .DS_Store of Mac OSX) because it
+        # isn't an pet image file
+        if in_files[idx][0] != ".":
+
+            # Creates temporary label variable to hold pet label name extracted
+            pet_label = ""
+
+            low_pet_filename = in_files[idx].lower()
+            words_in_filename = low_pet_filename.split('_')
+
+            for word in words_in_filename:
+                if word.isalpha():
+                    pet_label += word + ' '
+
+            pet_label = pet_label.strip()
+
+            # If filename doesn't already exist in dictionary add it and it's
+            # pet label - otherwise print an error message because indicates
+            # duplicate files (filenames)
+            if in_files[idx] not in results_dic:
+                results_dic[in_files[idx]] = [pet_label]
+
+            else:
+                print("** Warning: Duplicate files exist in directory:",
+                      in_files[idx])
 
     return results_dic

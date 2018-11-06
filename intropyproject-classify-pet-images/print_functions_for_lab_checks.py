@@ -74,7 +74,7 @@ def check_creating_pet_image_labels(results_dic):
             # prints only first 10 labels
             if n < stop_point:
                 print("{:2d} key: {:>30}  label: {:>26}".format(
-                    n + 1, key, results_dic[key][0:]))
+                    n + 1, key, results_dic[key][0]))
 
                 # Increments counter
                 n += 1
@@ -99,7 +99,6 @@ def check_classifying_images(results_dic):
                     classifer labels and 0 = no match between labels
     Returns:
      Nothing - just prints to console
-
     """
     if results_dic is None:
         print(
@@ -168,7 +167,6 @@ def check_classifying_labels_as_dogs(results_dic):
                             'as-NOT-a' dog.
     Returns:
      Nothing - just prints to console
-
     """
     if results_dic is None:
         print(
@@ -246,7 +244,6 @@ def check_calculating_results(results_dic, results_stats_dic):
                      and the value is the statistic's value
     Returns:
      Nothing - just prints to console
-
     """
     if results_stats_dic is None:
         print(
