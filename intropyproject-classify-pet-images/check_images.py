@@ -44,8 +44,6 @@ from print_results import print_results
 
 # Main program function defined below
 def main():
-    """Entry into check_images
-    """
     start_time = time()
 
     in_arg = get_input_args()

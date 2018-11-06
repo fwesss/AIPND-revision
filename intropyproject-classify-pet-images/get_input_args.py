@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Returns command line arguments to be read by rest of the program
-"""
 # */AIPND-revision/intropyproject-classify-pet-images/get_input_args.py
 #
 # PROGRAMMER: Westley Feller
@@ -46,23 +44,25 @@ def get_input_args():
     """
 
     parser = argparse.ArgumentParser()
+    # Get the directory of the pet images
     parser.add_argument(
         '--dir',
         type=str,
         default='pet_images/',
         help='path to the folder of pet images')
 
+    # Get the CNN model
     parser.add_argument(
         '--arch',
         type=str,
         default='vgg',
         help='type of CNN to be used in classification')
 
+    # Get file with dog names
     parser.add_argument(
         '--dogfile',
         type=str,
         default='dognames.txt',
         help='text file with the dog names')
-    # Replace None with parser.parse_args() parsed argument collection that
-    # you created with this function
+
     return parser.parse_args()

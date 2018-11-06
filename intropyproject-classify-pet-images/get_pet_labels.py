@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Summary
-"""
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #
 # PROGRAMMER: Westley Feller
@@ -65,6 +63,7 @@ def get_pet_labels(image_dir):
             # Creates temporary label variable to hold pet label name extracted
             pet_label = ""
 
+            # Parse the pet name from the filename
             low_pet_filename = in_files[idx].lower()
             words_in_filename = low_pet_filename.split('_')
 

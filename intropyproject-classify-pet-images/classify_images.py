@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Summary
-"""
 # */AIPND-revision/intropyproject-classify-pet-images/classify_images.py
 #
 # PROGRAMMER: Westley Feller
@@ -69,6 +67,7 @@ def classify_images(images_dir, results_dic, model):
         results_dic (TYPE): Description
         model (TYPE): Description
     """
+    # Clssify each image
     for key in results_dic:
         model_label = classifier(images_dir + key, model)
         model_label = model_label.lower().strip()
@@ -76,6 +75,8 @@ def classify_images(images_dir, results_dic, model):
         # defines truth as pet image label
         truth = results_dic[key][0]
 
+        # Extend results_dic with the classification and 1 if the model_label
+        # matches the image label. If not, extend the model_label and 0.
         if truth in model_label:
             results_dic[key].extend((model_label, 1))
 

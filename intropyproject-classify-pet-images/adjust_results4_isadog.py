@@ -67,17 +67,24 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """
+
+    # Create a dictionary for the dog names and populate from dogfiles.txt
     dognames_dic = dict()
+    # Read the dogfile and keep open until loop ends
     with open(dogfile, "r") as f:
+        # Add each dog name to dognames_dic if it's not already there.
+        # Otherwise, print a warning.
         for line in f.readlines():
             dog_name = line.rstrip()
             if dog_name not in dognames_dic:
                 dognames_dic[dog_name] = [1]
-
             else:
                 print("** Warning: Duplicate dog name exists in directory",
                       dog_name)
 
+    # For each image, find out if it's label and classification matches a dog
+    # name. If they do or do not match, extend the results_dic by 1 or 0
+    # respectively. The dict does not need to be returned since it's mutable.
     for key in results_dic:
         if results_dic[key][0] in dognames_dic.keys():
             label_is_dog = 1

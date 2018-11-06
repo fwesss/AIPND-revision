@@ -65,17 +65,25 @@ def print_results(results_dic,
     Returns:
            None - simply printing results.
     """
+
+    # Print messages giving an overview of the program after being run.
+    # The print statements will give vital stats to help determine what the
+    # outcome of the CNN model was and it effectiveness.
+    # Show the user what CNN was used, how many images were run through, and
+    # how many dogs and non-dogs were identified.
     print("The image classifier has been run using the {} model".format(model))
     print("{} images\n{} images of dogs\n{} non-dog images".format(
         results_stats_dic["n_images"], results_stats_dic["n_dogs_img"],
         results_stats_dic["n_notdogs_img"]))
 
+    # Display each percentage calculation in a readable format
     for key in results_stats_dic:
         if "pct" in key:
             print("{}% {}".format(
                 round(results_stats_dic[key], 2),
                 key.replace("pct_", '').replace('_', ' ').title()))
 
+    # Print how many dogs were incorrectly classified if requested
     if print_incorrect_dogs is True and results_stats_dic[
             "n_correct_dogs"] + results_stats_dic[
                 "n_correct_notdogs"] != results_stats_dic["n_images"]:
@@ -84,6 +92,7 @@ def print_results(results_dic,
                 print("{} misclassified as {}".format(key,
                                                       results_dic[key][1]))
 
+    # Print how many breeds were incorrectly classified if requested
     if print_incorrect_breed is True and results_stats_dic[
             "n_correct_dogs"] != results_stats_dic["n_correct_breed"]:
         for key in results_dic:

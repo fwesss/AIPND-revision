@@ -355,4 +355,4 @@ Beagle_01170.jpg misclassified as walker hound, walker foxhound
 Dog_02.jpg misclassified as chihuahua
 Great_pyrenees_05367.jpg misclassified as kuvasz
 
-** Total Elapsed Runtime: 0:0:28
+** Total Elapsed Runtime: 0:0:26

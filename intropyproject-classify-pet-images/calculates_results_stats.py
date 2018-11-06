@@ -71,6 +71,7 @@ def calculates_results_stats(results_dic):
     """
     # Replace None with the results_stats_dic dictionary that you created with
     # this function
+    # Initialize counting variables to 0
     n_images = 0
     n_dogs_img = 0
     n_notdogs_img = 0
@@ -79,6 +80,8 @@ def calculates_results_stats(results_dic):
     n_correct_notdogs = 0
     n_correct_breed = 0
 
+    # For each image, generate statistics. Each statistic will be incremented
+    # by one when the condition is true.
     for key in results_dic:
         n_images += 1
         if results_dic[key][3] == 1 and results_dic[key][4] == 1:
@@ -102,6 +105,8 @@ def calculates_results_stats(results_dic):
     pct_correct_breed = n_correct_breed / n_dogs_img * 100
     pct_correct_notdogs = n_correct_notdogs / n_notdogs_img * 100
 
+    # A dictionary for the statistics is created and populated with the
+    # calculations before being returned.
     results_stats_dic = {
         "n_images": n_images,
         "n_dogs_img": n_dogs_img,
