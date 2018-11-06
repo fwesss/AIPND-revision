@@ -6,7 +6,7 @@
 #
 # PROGRAMMER: Westley Feller
 # DATE CREATED: 11/4/18
-# REVISED DATE: 11/4/18
+# REVISED DATE: 11/5/18
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification
@@ -63,29 +63,12 @@ def main():
     # Function that checks Results Dictionary using results
     check_classifying_images(results)
 
-    # TODO 4: Define adjust_results4_isadog function within the file
-    # adjust_results4_isadog.py
-    # Once the adjust_results4_isadog function has been defined replace 'None'
-    # in the function call with in_arg.dogfile  Once you have done the
-    # replacements your function call should look like this:
-    #          adjust_results4_isadog(results, in_arg.dogfile)
-    # Adjusts the results dictionary to determine if classifier correctly
-    # classified images as 'a dog' or 'not a dog'. This demonstrates if
-    # model can correctly classify dog images as dogs (regardless of breed)
     adjust_results4_isadog(results, in_arg.dogfile)
 
     # Function that checks Results Dictionary for is-a-dog adjustment using
     # results
     check_classifying_labels_as_dogs(results)
 
-    # TODO 5: Define calculates_results_stats function within the file
-    # calculates_results_stats.py
-    # This function creates the results statistics dictionary that contains a
-    # summary of the results statistics (this includes counts & percentages).
-    # This dictionary is returned from the function call as the variable
-    # results_stats
-    # Calculates results of run and puts statistics in the Results Statistics
-    # Dictionary - called results_stats
     results_stats = calculates_results_stats(results)
 
     # Function that checks Results Statistics Dictionary using results_stats

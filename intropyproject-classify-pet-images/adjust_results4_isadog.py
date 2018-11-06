@@ -34,12 +34,6 @@
 #           and to 0 when the label isn't a dog.
 #
 ##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace
-#       the None below by the function definition of the adjust_results4_isadog
-#       function.
-#       Notice that this function doesn't return anything because the
-#       results_dic dictionary that is passed into the function is a mutable
-#       data type so no return is needed.
 
 
 def adjust_results4_isadog(results_dic, dogfile):
@@ -85,12 +79,12 @@ def adjust_results4_isadog(results_dic, dogfile):
                       dog_name)
 
     for key in results_dic:
-        if results_dic[key][0] in dognames_dic:
+        if results_dic[key][0] in dognames_dic.keys():
             label_is_dog = 1
         else:
             label_is_dog = 0
 
-        if results_dic[key][1] in dognames_dic:
+        if results_dic[key][1] in dognames_dic.keys():
             classifier_is_dog = 1
         else:
             classifier_is_dog = 0
